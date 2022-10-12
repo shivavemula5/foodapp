@@ -1,0 +1,16 @@
+{% extends 'food/base.html' %}
+
+{% block title %}
+    registration
+{% endblock title %}
+
+{% block body %}
+    <div class="container mt-5">
+        <form method="POST">
+            {% csrf_token %}
+            {{ user.as_p }}
+            <a href="{% url 'thankyou' %}" class="btn btn-primary"> Register </a>
+        </form>
+    </div>
+
+{% endblock body %}

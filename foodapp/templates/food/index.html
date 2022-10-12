@@ -1,0 +1,36 @@
+{% extends 'food/base.html' %}
+
+{% block title %} Index {% endblock title %}
+    
+{% block body %}
+
+    {% for item in data %}
+            
+        <div class="row">    
+            <div class="col-md-3 offset-md-2">
+                <img class="card" height="150px" width="250px" src="{{ item.item_image }}">
+            </div> 
+                    
+            <div class="col-md-4">
+                <h3>{{item.item_name}}</h3>
+                <h4>{{item.item_desc}}</h4>
+                <h5>${{item.item_price}}</h56>
+                <h6>{{item.id}}</h6>
+            </div>
+                    
+            <div class="col-md-2">
+                <a href="{% url 'details' item.id %}" class="btn btn-success">Details</a>
+                {% comment %} <a href="{% url 'delete' item.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'edit' item.id %}" class="btn btn-primary">Edit</a> {% endcomment %}
+            </div>
+        </div>
+        
+    {% endfor %}
+
+{% endblock body %}
+
+</body>
+
+</html>
+
+
